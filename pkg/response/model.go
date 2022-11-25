@@ -1,6 +1,6 @@
 package response
 
-import "github.com/calebtracey/rugby-models/models"
+import "github.com/calebtracey/rugby-models/pkg/models"
 
 type LeaderboardResponse struct {
 	Id      string                         `json:"id,omitempty"`
