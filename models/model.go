@@ -24,9 +24,9 @@ type TeamLeaderboardData struct {
 type PSQLLeaderboardDataList []PSQLLeaderboardData
 
 type PSQLLeaderboardData struct {
-	CompId            string `json:"comp_id,omitempty"`
+	CompId            int    `json:"comp_id,omitempty"`
 	CompName          string `json:"comp_name,omitempty"`
-	TeamId            string `json:"team_id,omitempty"`
+	TeamId            int    `json:"team_id,omitempty"`
 	TeamName          string `json:"team_name,omitempty"`
 	GamesPlayed       string `json:"games_played,omitempty"`
 	WinCount          string `json:"win_count,omitempty"`
