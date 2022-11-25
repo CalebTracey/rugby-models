@@ -1,12 +1,12 @@
 package response
 
-import "github.com/calebtracey/rugby-models/pkg/models"
+import "github.com/calebtracey/rugby-models/pkg/dtos"
 
 type LeaderboardResponse struct {
-	Id      string                         `json:"id,omitempty"`
-	Name    string                         `json:"name,omitempty"`
-	Teams   models.TeamLeaderboardDataList `json:"teams,omitempty"`
-	Message Message                        `json:"message,omitempty"`
+	Id      string                       `json:"id,omitempty"`
+	Name    string                       `json:"name,omitempty"`
+	Teams   dtos.TeamLeaderboardDataList `json:"teams,omitempty"`
+	Message Message                      `json:"message,omitempty"`
 }
 
 type Message struct {
