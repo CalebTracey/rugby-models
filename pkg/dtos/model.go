@@ -1,10 +1,23 @@
 package dtos
 
+type CompetitionLeaderboardDataList []CompetitionLeaderboardData
+
+type CompetitionLeaderboardData struct {
+	CompId   string                  `json:"compId,omitempty"`
+	CompName string                  `json:"compName,omitempty"`
+	Teams    TeamLeaderboardDataList `json:"teams,omitempty"`
+}
+
 type TeamLeaderboardDataList []TeamLeaderboardData
 
 type TeamLeaderboardData struct {
-	Id                string `json:"id,omitempty"`
-	Name              string `json:"name,omitempty"`
+	Id               string               `json:"id,omitempty"`
+	Name             string               `json:"name,omitempty"`
+	Abbr             string               `json:"abbr,omitempty"`
+	CompetitionStats TeamCompetitionStats `json:"competitionStats"`
+}
+
+type TeamCompetitionStats struct {
 	GamesPlayed       string `json:"gamesPlayed,omitempty"`
 	WinCount          string `json:"winCount,omitempty"`
 	DrawCount         string `json:"drawCount,omitempty"`

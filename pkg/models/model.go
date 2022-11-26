@@ -9,6 +9,7 @@ type PSQLLeaderboardData struct {
 	CompName          string `json:"comp_name,omitempty"`
 	TeamId            int    `json:"team_id,omitempty"`
 	TeamName          string `json:"team_name,omitempty"`
+	TeamAbbr          string `json:"team_abbr,omitempty"`
 	GamesPlayed       string `json:"games_played,omitempty"`
 	WinCount          string `json:"win_count,omitempty"`
 	DrawCount         string `json:"draw_count,omitempty"`
