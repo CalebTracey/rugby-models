@@ -2,6 +2,8 @@ package response
 
 import "github.com/calebtracey/rugby-models/pkg/dtos"
 
+type LeaderboardResponseList []LeaderboardResponse
+
 type LeaderboardResponse struct {
 	Id      string                       `json:"id,omitempty"`
 	Name    string                       `json:"name,omitempty"`
