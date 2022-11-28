@@ -1,21 +1,22 @@
-package request
+package leaderboard
 
 import (
 	"encoding/json"
 	"github.com/calebtracey/rugby-models/pkg/dtos"
 	"github.com/calebtracey/rugby-models/pkg/dtos/response"
 	"github.com/go-playground/validator/v10"
+	"io"
 )
 
-type LeaderboardRequest struct {
+type Request struct {
 	Competitions dtos.CompetitionList `json:"competitions" validate:"required"`
 	Date         string               `json:"date,omitempty"`
 	Source       string               `json:"source,omitempty"`
 }
 
-func (req *LeaderboardRequest) UnmarshalJson(data []byte) *response.ErrorLog {
-	*req = LeaderboardRequest{}
-	if err := json.Unmarshal(data, req); err != nil {
+func (req *Request) FromJSON(r io.Reader) *response.ErrorLog {
+	e := json.NewDecoder(r)
+	if err := e.Decode(req); err != nil {
 		return &response.ErrorLog{
 			StatusCode:    "400",
 			RootCause:     err.Error(),
@@ -25,7 +26,14 @@ func (req *LeaderboardRequest) UnmarshalJson(data []byte) *response.ErrorLog {
 	return nil
 }
 
-func (req *LeaderboardRequest) Validate() error {
+func (req *Request) Validate() *response.ErrorLog {
 	validate := validator.New()
-	return validate.Struct(req)
+	if err := validate.Struct(req); err != nil {
+		return &response.ErrorLog{
+			StatusCode:    "400",
+			RootCause:     err.Error(),
+			ExceptionType: "bad request",
+		}
+	}
+	return nil
 }

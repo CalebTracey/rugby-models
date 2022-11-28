@@ -2,7 +2,6 @@ package response
 
 import (
 	"encoding/json"
-	"github.com/calebtracey/rugby-models/pkg/dtos"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 	"os"
@@ -14,13 +13,6 @@ const (
 	Success = "SUCCESS"
 	Error   = "ERROR"
 )
-
-type LeaderboardResponseList []LeaderboardResponse
-
-type LeaderboardResponse struct {
-	LeaderboardData dtos.CompetitionLeaderboardDataList `json:"leaderboardData"`
-	Message         Message                             `json:"message,omitempty"`
-}
 
 type Message struct {
 	ErrorLog  ErrorLogs `json:"errorLog,omitempty"`
