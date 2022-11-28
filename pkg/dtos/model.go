@@ -1,5 +1,12 @@
 package dtos
 
+type CompetitionList []Competition
+
+type Competition struct {
+	Id   string `json:"id,omitempty"`
+	Name string `json:"name,omitempty" validate:"required"`
+}
+
 type CompetitionLeaderboardDataList []CompetitionLeaderboardData
 
 type CompetitionLeaderboardData struct {
