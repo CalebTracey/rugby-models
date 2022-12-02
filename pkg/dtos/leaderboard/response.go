@@ -14,9 +14,8 @@ type Response struct {
 	Message         response.Message                    `json:"message,omitempty"`
 }
 
-func (res *Response) ToJSON(w io.Writer) *response.ErrorLog {
-	e := json.NewEncoder(w)
-	if err := e.Encode(res); err != nil {
+func (res *Response) ResponseToJSON(w io.Writer) *response.ErrorLog {
+	if err := json.NewEncoder(w).Encode(res); err != nil {
 		return &response.ErrorLog{
 			StatusCode:    "500",
 			RootCause:     err.Error(),

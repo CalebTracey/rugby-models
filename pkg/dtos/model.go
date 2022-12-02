@@ -4,7 +4,7 @@ type CompetitionList []Competition
 
 type Competition struct {
 	Id   string `json:"id,omitempty"`
-	Name string `json:"name,omitempty" validate:"required"`
+	Name string `json:"name" validate:"required"`
 }
 
 type CompetitionLeaderboardDataList []CompetitionLeaderboardData
